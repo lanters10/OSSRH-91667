@@ -8,6 +8,8 @@ API接口加密，可通过注解的方式对请求实体与响应实体进行AE
 
 ##### Gitee: https://gitee.com/lanters/api-encrypt-spring-boot 
 
+##### Github: https://github.com/lanters10/OSSRH-91667
+
 ### 二、注解说明
 
 |   应用  | 功能   | 描述                        |
