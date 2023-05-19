@@ -3,57 +3,23 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.github.lanters10</groupId>
+    <groupId>io.github.lanters10</groupId>
     <artifactId>api-encrypy-spring-boot</artifactId>
-    <version>1.0.0.RELEASE</version>
+    <version>1.0.1.RELEASE</version>
     <name>api-encrypt-spring-boot</name>
     <description>API接口请求参数加解密中间件</description>
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.4.RELEASE</version>
-    </parent>
-
-    <distributionManagement>
-        <snapshotRepository>
-            <id>nexus-snapshots</id>
-            <url>https://nexus.dev/repository/maven-snapshots/</url>
-        </snapshotRepository>
-        <repository>
-            <id>nexus-releases</id>
-            <url>https://nexus.dev/repository/maven-releases/</url>
-        </repository>
-    </distributionManagement>
-
-    <licenses>
-        <license>
-            <name>The Apache Software License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-
-    <scm>
-        <connection>scm:git:git://gitee.com/lanters/api-encrypt-spring-boot.git</connection>
-        <developerConnection>scm:git:git://gitee.com/lanters/api-encrypt-spring-boot.git</developerConnection>
-        <url>https://gitee.com/lanters</url>
-    </scm>
-
-    <developers>
-        <developer>
-            <name>dp</name>
-            <email>duanpan2415@dingtalk.com</email>
-            <url>https://gitee.com/lanters</url>
-            <timezone>+8</timezone>
-        </developer>
-    </developers>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
     </properties>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.4.RELEASE</version>
+    </parent>
 
     <dependencies>
         <dependency>
@@ -103,5 +69,92 @@
         </dependency>
 
     </dependencies>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git://gitee.com/lanters/api-encrypt-spring-boot.git</connection>
+        <developerConnection>scm:git:git://gitee.com/lanters/api-encrypt-spring-boot.git</developerConnection>
+        <url>https://gitee.com/lanters</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>dp</name>
+            <email>duanpan2415@dingtalk.com</email>
+            <url>https://gitee.com/lanters</url>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <additionalparam>-Xdoclint:none</additionalparam>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version> 1.5 </version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.2</version>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

@@ -7,8 +7,7 @@
 API接口加密，可通过注解的方式对请求实体与响应实体进行AES/RSA加解密。
 
 ##### Gitee: https://gitee.com/lanters/api-encrypt-spring-boot 
-
-##### Github: https://github.com/lanters10/OSSRH-91667
+##### Github: https://github.com/lanters10/api-encrypt-spring-boot
 
 ### 二、注解说明
 
@@ -21,6 +20,16 @@ API接口加密，可通过注解的方式对请求实体与响应实体进行AE
 | @DecryptField | 需要解密的属性，如果不加这个，有解密注解，也不会进行加解密 | 添加在实体类的属性上，decryptMode表示该属性值解密的模式，分为AES与RSA性 |
 
 ### 三、使用说明
+
+- #### Apache Maven，在pom.xml中引入依赖
+
+  ```xml
+  <dependency>
+      <groupId>io.github.lanters10</groupId>
+      <artifactId>api-encrypy-spring-boot</artifactId>
+      <version>1.0.0.RELEASE</version>
+  </dependency>
+  ```
 
 - #### 配置application.yml
 
